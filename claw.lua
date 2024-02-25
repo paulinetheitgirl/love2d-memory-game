@@ -15,11 +15,17 @@ Claw = {
       self.__index = self
       return o
     end
-
-    function Claw:move_right(step)
+ 
+    function Claw:move_right(step, loop)
       if self.is_moving_right
       then
-        self.x = math.min(self.x + step, love.graphics.getWidth() - self.width)
+        if loop
+        then
+          self.x = math.min(self.x + step, love.graphics.getWidth() + self.width)
+          self.x = (self.x >= love.graphics.getWidth() + self.width and -10) or self.x
+        else
+          self.x = math.min(self.x + step, love.graphics.getWidth() - self.width)
+        end
       end
     end
 
@@ -45,11 +51,11 @@ Claw = {
       for i, prize in ipairs(prize_images) do
         if (check_collision(self.x + (self.width / 4),
           self.y + (self.height * 3 / 4),
-          self.width / 2,
-          (self.height / 4),
+          self.width / 4,
+          self.height / 4,
           prize.x + (prize.drawable:getWidth() / 4),
           prize.y,
-          prize.drawable:getWidth() / 2,
+          prize.drawable:getWidth() / 3,
           prize.drawable:getHeight() / 2))
         then
           prize.selected = true

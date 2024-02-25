@@ -4,6 +4,9 @@ A memory "claw catcher" game done in LÖVE 2D/Lua. How did it end up being pirat
 ## How to run
 This project requires the LÖVE 2D game engine. See their [wiki](https://love2d.org/wiki/Getting_Started) for instructions
 
+# Game states
+The state management is based heavily on @github.com/games50 's [Pokemon project](https://github.com/games50/pokemon). I made some modifcations to the `push` library because of how this game uses `love.graphics` states.
+
 # Game Asset Credits and Licenses
 Please retain all license-related files when redistributing this project.
 
@@ -14,3 +17,5 @@ Please retain all license-related files when redistributing this project.
 - [Noto Sans font](https://fonts.google.com/noto/specimen/Noto+Sans) used under an [Open Font License](https://openfontlicense.org/)
 
 Enjoy!
+
+![Preview of the game window](memory_catcharr_preview.png)
